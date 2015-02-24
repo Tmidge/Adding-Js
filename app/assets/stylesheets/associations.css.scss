@@ -3,6 +3,9 @@
   border-color: lightgrey;
   border-style: solid;
   margin-bottom: -1px;
+  &:last-child {
+    display: none;
+  }
   .row {
     padding-top: 10px;
   }

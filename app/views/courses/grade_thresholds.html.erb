@@ -21,7 +21,7 @@
   <% i = 0 %>
   <div class="associations">
     <%= f.fields_for :grade_thresholds do |ff| %>
-      <div class="association container">
+      <div class="association container" id = "row_<%= i %>">
         <div class="row">
           <div class="span3">
             <%= ff.label :letter do %>
@@ -35,10 +35,10 @@
           </div>
           <div class="span1">
             <% if ff.object.persisted? %>
-              <%= link_to 'Delete', nil, class: "btn btn-danger delete-association" %>
+              <%= link_to 'Delete', "#", class: "btn btn-danger delete-association", id: i, onclick:"deleteRow(this);" %>
               <%= ff.check_box :_destroy, class: "destroy", hidden: true %>
             <% else %>
-              <%= link_to 'Delete', nil, class: "btn btn-danger flush-association" %>
+              <%= link_to 'Delete', "#", class: "btn btn-danger flush-association", id: i, onclick:"deleteRow(this);" %>
             <% end %>
           </div>
         </div>
@@ -46,10 +46,10 @@
       <% i += 1 %>
     <% end %>
   </div>
-  <%= link_to '<i class="fa fa-plus"></i> Add Grade Threshold'.html_safe, nil, class: "btn btn-success new-association", "data-index" => i %>
+  <%= link_to '<i class="fa fa-plus"></i> Add Grade Threshold'.html_safe, "#", class: "btn btn-success new-association", "data-index" => i, id: "grade_button", onclick:"showGrade();" %>
 
 
   <div class="actions">
-    <%= f.submit class: "btn" %>
+    <%= f.submit class: "btn", id: "update_button", onclick: "disableButton();"%>
   </div>
 <% end %>

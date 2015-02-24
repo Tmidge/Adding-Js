@@ -10,7 +10,9 @@
     <![endif]-->
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "smoothscroll" %>
     <%= csrf_meta_tags %>
+    <script> smoothScroll.init(); </script>
   </head>
   <body>
     <header class="navbar navbar-fixed-top">
